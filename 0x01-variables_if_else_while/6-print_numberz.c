@@ -6,7 +6,7 @@
 */
 int main(void)
 {
-unsigned short num = '1';
+unsigned short num = '0';
 
 while (num <= '9')
 {
