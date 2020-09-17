@@ -12,7 +12,7 @@ char upper = 'A';
 while (lower <= 'z')
 putchar(lower++);
 
-while (upper <= 'Z')
+while (upper <= 'A')
 putchar(upper++);
 putchar('\n');
 return (0);
