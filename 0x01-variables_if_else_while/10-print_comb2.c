@@ -14,17 +14,17 @@ while (primero <= '9')
 
 for (segundo = '0'; segundo <= '9'; segundo++)
 {
-putchar(primero);
-putchar(segundo);
+putchar (primero);
+putchar (segundo);
 
 if (primero < '9' || segundo < '9')
-putchar(',');
-putchar(' ');
+putchar (',');
+putchar (' ');
 }
 
 segundo = '0';
 primero++;
 }
-putchar('\n');
+putchar ('\n');
 return (0);
 }
