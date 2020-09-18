@@ -29,6 +29,5 @@ primero++;
 
 }
 
-putchar('\n');
 return (0);
 }
