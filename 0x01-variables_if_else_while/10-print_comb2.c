@@ -20,14 +20,12 @@ putchar(segundo);
 if (primero < '9' || segundo < '9')
 putchar(',');
 putchar(' ');
-
-
 }
 
 segundo = '0';
 primero++;
-
 }
 
+putchar('\n');
 return (0);
 }
