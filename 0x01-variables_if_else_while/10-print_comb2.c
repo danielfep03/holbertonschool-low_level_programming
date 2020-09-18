@@ -18,8 +18,10 @@ putchar (first);
 putchar (second);
 
 if (first < '9' || second < '9')
+{
 putchar (',');
 putchar (' ');
+}
 }
 
 second = '0';
