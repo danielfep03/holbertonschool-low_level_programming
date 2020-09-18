@@ -27,8 +27,8 @@ putchar(' ');
 segundo = '0';
 primero++;
 
-putchar('\n');
 }
 
+putchar('\n');
 return (0);
 }
