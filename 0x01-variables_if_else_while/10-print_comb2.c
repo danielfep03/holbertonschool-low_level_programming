@@ -17,7 +17,7 @@ for (second = '0'; second <= '9'; second++)
 putchar (first);
 putchar (second);
 
-if (first < '9' || second < '9')
+if (first < '9' | second < '9')
 putchar (',');
 putchar (' ');
 }
