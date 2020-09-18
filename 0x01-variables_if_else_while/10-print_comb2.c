@@ -12,24 +12,21 @@ unsigned short segundo;
 while (primero <= '9')
 {
 
-for (segundo = '0' ; segundo<='9'; segundo++)
+for (segundo = '0' ; segundo <= '9'; segundo++)
 {
 putchar(primero);
 putchar(segundo);
 
-if ((primero < '9') || (segundo < '9'))
-{
+if (primero < '9' || segundo < '9')
 putchar(',');
 putchar(' ');
-}
+
 
 }
 
-if (segundo = '9')
-{
 segundo = '0';
 primero++;
-}
+
 putchar('\n');
 }
 
