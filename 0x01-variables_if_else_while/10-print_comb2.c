@@ -6,24 +6,24 @@
 */
 int main(void)
 {
-unsigned short primero = '0';
-unsigned short segundo;
+unsigned short first = '0';
+unsigned short second;
 
-while (primero <= '9')
+while (first <= '9')
 {
 
-for (segundo = '0'; segundo <= '9'; segundo++)
+for (second = '0'; second <= '9'; second++)
 {
-putchar (primero);
-putchar (segundo);
+putchar (first);
+putchar (second);
 
-if (primero < '9' || segundo < '9')
+if (first < '9' || second < '9')
 putchar (',');
 putchar (' ');
 }
 
-segundo = '0';
-primero++;
+second = '0';
+first++;
 }
 putchar ('\n');
 return (0);
