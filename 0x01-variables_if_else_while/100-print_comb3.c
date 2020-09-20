@@ -17,7 +17,7 @@ for (n2 = '0' + b; n2 <= '9'; n2++)
 putchar(n1);
 putchar(n2);
 
-if (n1 != 8 && n2 != 9)
+if (n1 != '8')
 {
 putchar(',');
 putchar(' ');
