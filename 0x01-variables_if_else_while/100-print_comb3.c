@@ -8,8 +8,6 @@ int main(void)
 {
 unsigned short n1, n2;
 unsigned short b = 1;
-
-
 for (n1 = '0'; n1 <= '9'; n1++)
 {
 for (n2 = '0' + b; n2 <= '9'; n2++)
