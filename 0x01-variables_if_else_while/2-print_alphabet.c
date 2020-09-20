@@ -9,10 +9,8 @@ int main(void)
 char lower = 'a';
 
 while (lower <= 'z')
-if (lower == q)
-lower = r;
-
 putchar(lower++);
 
+putchar('\n');
 return (0);
 }
