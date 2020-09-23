@@ -1,4 +1,3 @@
-ls
 #include "holberton.h"
 
 /**
