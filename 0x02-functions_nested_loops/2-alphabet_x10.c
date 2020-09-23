@@ -1,10 +1,12 @@
 #include "holberton.h"
 
 /**
-* print_alphabet - print the alphabet in lowercase
+* print_alphabet_x10 - print the alphabet in lowercase x 1
+*
+*
 */
 
-void print_alphabet(void)
+void print_alphabet_x10(void)
 {
 char alphabet;
 int i;
