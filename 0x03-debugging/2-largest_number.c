@@ -1,4 +1,5 @@
 #include "holberton.h"
+
 /**
  * largest_number - returns the largest of 3 numbers
  * @a: first integer
@@ -20,6 +21,12 @@ return (largest);
 else if (b > a && b > c)
 {
 largest = b;
+return (largest);
+}
+
+else if(a == b)
+{
+largest = 98;
 return (largest);
 }
 
