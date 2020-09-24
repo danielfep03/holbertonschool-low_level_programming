@@ -24,7 +24,7 @@ largest = b;
 return (largest);
 }
 
-else if(a == b)
+else if (a == b)
 {
 largest = 98;
 return (largest);
