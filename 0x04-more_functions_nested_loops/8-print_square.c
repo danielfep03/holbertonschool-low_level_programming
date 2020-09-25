@@ -1,15 +1,15 @@
 #include "holberton.h"
 
 /**
-* print_diagonal - function that draws a diagonal line on the terminal
-* @n: number of times the character \ should be printed
+* print_square - function that prints a square, followed by a new line
+* @size: size of square
 *
 */
 
 void print_square(int size)
 {
 
-int colum,row;
+int colum, row;
 
 if (size > 0)
 {
