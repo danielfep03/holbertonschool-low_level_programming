@@ -2,7 +2,7 @@
 
 /**
 * print_diagonal - function that draws a diagonal line on the terminal
-*@n: number of times the character \ should be printed
+* @n: number of times the character \ should be printed
 *
 */
 
