@@ -18,7 +18,12 @@ printf("FizzBuzz ");
 
 else if (i % 5 == 0)
 {
-printf("Buzz ");
+if(i == 100)
+{
+printf("Buzz");
+break;
+}
+printf("Buzz");
 }
 
 else if (i % 3 == 0)
