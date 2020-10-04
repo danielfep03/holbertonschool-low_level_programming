@@ -6,23 +6,22 @@
 * @s: string
 */
 
-
 void rev_string(char *s)
 {
-	int i, r;
-	char reverse[447] = "";
+	int lenght, i;
+	char *end;
+ 
+	end = s;
 
-		for (i = 0; s[i] != '\0'; i++)
-		{}
+	for(lenght = 0; s[lenght] != '\0'; lenght++)
+	{
+		end++;
+	}
+		end--;
 
-		i--;
-		for (r = 0; i >= 0; i--, r++)
-		{
-			reverse[r] = s[i];
-		}
-		for (i = 0; s[i] != '\0'; i++)
-		{
-			s[i] = reverse[i];
-		}
-
+	for(i = lenght; i >= 0; i--)
+	{
+		*end = s[i];
+	}
 }
+ 
