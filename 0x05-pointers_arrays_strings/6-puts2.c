@@ -10,9 +10,9 @@ void puts2(char *str)
 {
 	int i;
 
-	if (str[0] == '""')
+	if (str[0] == '\0')
 	{
-		_putchar(str[0]);
+		_putchar('\0');
 	}
 	else
 	{
