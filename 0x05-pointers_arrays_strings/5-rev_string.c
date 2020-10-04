@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
-* rev_string - function that prints a string, in reverse
+* rev_string - Function that prints a string, in reverse
 * @s: string
 */
 
@@ -10,7 +10,7 @@
 void rev_string(char *s)
 {
 	int i, r;
-	char reverse[20] = "";
+	char reverse[447] = "";
 
 		for (i = 0; s[i] != '\0'; i++)
 		{}
