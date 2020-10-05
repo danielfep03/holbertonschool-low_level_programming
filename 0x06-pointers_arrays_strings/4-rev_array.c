@@ -10,13 +10,21 @@
 
 void reverse_array(int *a, int n)
 {
-	/*int i;
-	char x[];
+	int temp, i, *end, *begin;
+	end += n;
+	begin = a;
 
-	for(i = n; i >= 0; i--)
+	for (i = 0; i <= n / 2; i++)
 	{
-		x = a[i];
-	}*/
-	printf("este es n %d", n);
-	printf("este es n %n", a);
+		temp = *end;
+		*end = *begin;
+		*begin = temp;
+
+		end--;
+		begin++;
+
+	}
+
+	printf("este es n %d\n", n);
+	printf("este es a %d\n", a[2]);
 }
