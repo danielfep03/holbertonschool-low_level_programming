@@ -2,8 +2,9 @@
 #include <stdio.h>
 
 /**
-* string_toupper - Function that changes all lowercase letters of a string to uppercase.
+* string_toupper - Function that changes all lowercase
 * @s: String
+* Return: String
 */
 
 char *string_toupper(char *s)
