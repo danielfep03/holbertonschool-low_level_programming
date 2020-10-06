@@ -2,19 +2,25 @@
 #include <stdio.h>
 
 /**
-* _strcmp - function that compares two strings.
-* @a: string
-* @n: string
+* reverse_array - Function that reverses the content of an array of integers.
+* @a: Integer
+* @n: Integer
 * Return: Comparation int
 */
 
 void reverse_array(int *a, int n)
 {
-	int temp, i, *end, *begin;
-	end += n;
+	int *end, *begin, temp, i;
+
+	end = a;
 	begin = a;
 
-	for (i = 0; i <= n / 2; i++)
+	for(i = 0; i < n ; i++)
+		end++;
+	
+	end--;
+
+	for(i = 0; i <= n / 2; i++)
 	{
 		temp = *end;
 		*end = *begin;
@@ -22,9 +28,6 @@ void reverse_array(int *a, int n)
 
 		end--;
 		begin++;
-
+		
 	}
-
-	printf("este es n %d\n", n);
-	printf("este es a %d\n", a[2]);
 }
