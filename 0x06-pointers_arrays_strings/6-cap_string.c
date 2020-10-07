@@ -11,14 +11,16 @@ char *cap_string(char *s)
 char *k = "\t\n,;.!?'' (){}";
 int i, j;
 
-	for (i = 0, j = 0; s[i]; ++i)
+	for (i = 0; s[i]; ++i)
 		{
 			if ('a' <= s[i] && s[i] <= 'z')
 			{
 				if (i)
 				{
 					for (j = 0; k[j] && k[j] != s[i - 1]; ++j)
-						{}
+						{
+							printf("Este es K %d\n", j);
+						}
 				}
 
 			if (k[j])
