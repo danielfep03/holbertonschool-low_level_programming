@@ -1,7 +1,7 @@
 #include "holberton.h"
 #include <stdio.h>
 /**
- * leet - function that encodes a string.
+ * rot13 - function that encodes a string.
  *
  * @s: String
  * Return: String
