@@ -9,8 +9,8 @@
 
 char *leet(char *s)
 {
-	char arrayNum[] = "4433007711";
-	char array[] = "aAeEoOtTlL";
+	char arrayNum[] = "4307143071";
+	char array[] = "aeotlAEOTL";
 	int i, j;
 
 	for (i = 0; s[i] != '\0'; ++i)
