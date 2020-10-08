@@ -19,7 +19,6 @@ int i, j;
 				{
 					for (j = 0; k[j] && k[j] != s[i - 1]; ++j)
 						{
-							printf("Este es K %d\n", j);
 						}
 				}
 
