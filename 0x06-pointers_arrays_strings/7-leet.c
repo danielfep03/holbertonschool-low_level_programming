@@ -15,12 +15,11 @@ char *leet(char *s)
 
 	for (i = 0; s[i]; ++i)
 	{
-		for (j = 0; j <= 9; ++j)
+		for (j = 0; j < 9; ++j)
 		{
 			if (s[i] == array[j])
 			{
 				s[i] = arrayNum[j];
-				s[0] = arrayNum[j];
 			}
 		}
 	}
