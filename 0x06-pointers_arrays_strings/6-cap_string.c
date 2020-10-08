@@ -6,27 +6,30 @@
  *@s: String
  * Return: String
  */
-char *cap_string(char *s)
+char *cap_string(char *str)
 {
-char *k = "\t\n,;.!?'' (){}";
-int i, j;
+	int x, y, i;
+	char s[] = {' ', '\t', '\n', ',', ';', '.', '!', '?',
 
-	for (i = 0; s[i]; i++)
+			 '"', ')', '(', '{', '}'};
+
+	i = 32;
+
+	for (x = 0; str[x] != '\0'; x++)
+	{
+		if (str[x] >= 97 && str[x] <= 122)
 		{
-			if ('a' <= s[i] && s[i] <= 'z')
-			{
-				if (i)
-				{
-					for (j = 0; k[j] && k[j] != s[i - 1]; ++j)
-						{}
-				}
-			}
-			if (k[j])
-			{
-				s[i] -= ('a' - 'A');
-			}
-
+			str[x] = str[x] - i;
 		}
-
-	return (s);
+		i = 0;
+		for (y = 0; y < 12; y++)
+		{
+			if (str[x] == s[y])
+			{
+				y = 12;
+				i = 32;
+			}
+		}
+	}
+	return (str);
 }
