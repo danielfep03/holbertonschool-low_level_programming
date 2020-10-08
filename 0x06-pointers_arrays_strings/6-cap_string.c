@@ -2,8 +2,8 @@
 #include <stdio.h>
 
 /**
- * cap_string - check the code for Holberton School students.
- *@s: String
+ * cap_string - function that capitalizes all words of a string.
+ *@str: String
  * Return: String
  */
 char *cap_string(char *str)
