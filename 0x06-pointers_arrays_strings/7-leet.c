@@ -13,9 +13,9 @@ char *leet(char *s)
 	char array[] = {'a', 'e', 'o', 't', 'l', 'A', 'E', 'O', 'T', 'L'};
 	int i, j;
 
-	for (i = 0; s[i]; ++i)
+	for (i = 0; s[i] != '\0'; ++i)
 	{
-		for (j = 0; array[j]; ++j)
+		for (j = 0; array[j] != '\0'; ++j)
 		{
 			if (s[i] == array[j])
 			{
