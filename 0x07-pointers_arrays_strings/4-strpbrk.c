@@ -17,11 +17,10 @@ char *_strpbrk(char *s, char *accept)
 		{
 			if (accept[i] == s[0])
 			{
-				return(s);
-				break;
+				return (s);
 			}
 		}
 		s++;
 	}
-	return (s);
+	return (0);
 }
