@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * _strchr - function that locates a character in a string.
+ * _strchr - 
  * @s: String
  * @c: Character
  * Return: Always 0.
@@ -10,7 +10,6 @@
 
 char *_strchr(char *s, char c)
 {
-
 	while (s++)
 	{
 		if (s[0] == c)
