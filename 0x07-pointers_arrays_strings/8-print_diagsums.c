@@ -14,12 +14,10 @@ void print_diagsums(int *a, int size)
 	int pluseo2 = 0;
 	int position = 0;
 
-	/*total = size * size;*/
-
-	for (i = 1; i <= size - 1; i++)
+	for (i = 1; i <= size; i++)
 	{
-		position = position + (size + 1);
 		pluseo = pluseo + a[position];
+		position = position + (size + 1);
 	}
 
 	position = size - 1;
