@@ -1,20 +1,26 @@
 #include "holberton.h"
 #include <stdio.h>
 /**
- * lenght - Function that prints a string in reverse.
+ * lenght - Return the lenght of a string
  * @s: String
- * Return: Always 0.
+ * Return: Lenght of a string.
  */
 
 int lenght(char *s)
 {
 	if (s[0] == '\0')
 	{
-		return 0;
+		return (0);
 	}
 
 	return (1 + lenght(s + 1));
 }
+
+ /**
+ * prints - Prints a string
+ * @s: - String
+ * @num: - lenght of string
+ */
 
 void prints(char *s, int num)
 {
@@ -24,8 +30,13 @@ void prints(char *s, int num)
 		return;
 	}
 	_putchar(s[num]);
-	prints (s, num - 1);
+	prints(s, num - 1);
 }
+
+ /**
+ * _print_rev_recursion - Function that prints a string in reverse.
+ * @s: String
+ */
 
 void _print_rev_recursion(char *s)
 {
@@ -33,5 +44,5 @@ void _print_rev_recursion(char *s)
 
 	num = lenght(s);
 
-	prints (s, num);
+	prints(s, num);
 }
