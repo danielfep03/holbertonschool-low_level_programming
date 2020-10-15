@@ -21,7 +21,7 @@ unsigned int _strspn(char *s, char *accept)
 				break;
 			}
 			if (s[0] == ' ')
-			{
+				{
 				return (count);
 			}
 		}
