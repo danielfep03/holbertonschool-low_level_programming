@@ -2,7 +2,7 @@
 
 /**
  * _strdup - Function that copy the string given as a parameter
- * @str: Size of array to return
+ * @str: String to copy
  * Return: Pointer to a newly allocate space in memory
  */
 char *_strdup(char *str)
@@ -10,7 +10,7 @@ char *_strdup(char *str)
 	char *array;
 	int i;
 
-	if (str == NULL)
+	if (str == NULL || str == "")
 	{
 		return (NULL);
 	}
