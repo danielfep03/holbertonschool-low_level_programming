@@ -2,8 +2,6 @@
 #include <stdlib.h>
 /**
  * main - Function that multiplies two numbers.
-
-
  *
  * @argc: Value of parameters on the prompt
  * @argv: Parameters on the prompt
@@ -14,10 +12,11 @@ int main(int argc, char *argv[])
 
 {
 	int n1 = 0, n2 = 0, result;
+
 	if (argc != 3)
 	{
 		printf("Error\n");
-		return(1);
+		return (1);
 	}
 	else
 	{
