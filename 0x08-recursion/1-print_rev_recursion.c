@@ -2,7 +2,7 @@
 #include <stdio.h>
 /**
  * lenght - Return the lenght of a string
- * @s: String
+ * @s: Stringx
  * Return: Lenght of a string.
  */
 
