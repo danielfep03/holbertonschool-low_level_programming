@@ -6,7 +6,7 @@
  * @name: Parameter of a struct
  * @age: Parameter of a struct
  * @owner: Parameter of a struct
- * 
+ *
  */
 
 
