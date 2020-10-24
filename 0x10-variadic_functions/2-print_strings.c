@@ -2,8 +2,8 @@
 
 /**
  * print_strings - Function that prints strings, followed by a new line
- * @separator: e
- * @n:
+ * @separator:  String to be printed between the strings
+ * @n: Number of strings passed to the function
  */
 
 void print_strings(const char *separator, const unsigned int n, ...)
@@ -14,7 +14,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 
 	va_start(strings, n);
 
-	for(i = 0; i < n; i++)
+	for (i = 0; i < n; i++)
 	{
 		str = va_arg(strings, char *);
 		if (str)
@@ -26,7 +26,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 			printf("(nill)");
 		}
 
-		if(separator && i < n - 1)
+		if (separator && i < n - 1)
 		{
 			printf("%s", separator);
 		}
