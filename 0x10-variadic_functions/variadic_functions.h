@@ -7,15 +7,15 @@
 
 /**
  * struct fp - struct
- * @tp: Char
+ * @type: Char
  * @func: Function
  */
 
-typedef struct fp
+typedef struct
 {
-	char *tp;
-	void (*func)(va_list);
-} fp_;
+	char *type;
+	void (*func)();
+} print;
 
 int sum_them_all(const unsigned int n, ...);
 void print_numbers(const char *separator, const unsigned int n, ...);
