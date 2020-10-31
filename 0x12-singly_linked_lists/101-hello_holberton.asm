@@ -1,34 +1,16 @@
-  global _main
-    extern  _GetStdHandle@4
-    extern  _WriteFile@20
-    extern  _ExitProcess@4
+; ----------------------------------------------------------------------------------------
+; Writes "Hola, mundo" to the console using a C library. Runs on Linux.
+;
+;     nasm -felf64 hola.asm && gcc hola.o && ./a.out
+; ----------------------------------------------------------------------------------------
 
-    section .text
-_main:
-    ; DWORD  bytes;    
-    mov     ebp, esp
-    sub     esp, 4
+          global    main
+          extern    puts
 
-    ; hStdOut = GetstdHandle( STD_OUTPUT_HANDLE)
-    push    -11
-    call    _GetStdHandle@4
-    mov     ebx, eax    
-
-    ; WriteFile( hstdOut, message, length(message), &bytes, 0);
-    push    0
-    lea     eax, [ebp-4]
-    push    eax
-    push    (message_end - message)
-    push    message
-    push    ebx
-    call    _WriteFile@20
-
-    ; ExitProcess(0)
-    push    0
-    call    _ExitProcess@4
-
-    ; never here
-    hlt
+          section   .text
+main:                                       ; This is called by the C library startup code
+          mov       rdi, message            ; First integer (or pointer) argument in rdi
+          call      puts                    ; puts(message)
+          ret                               ; Return from main back into C library wrapper
 message:
-    db      'Hello, Holberton', 10
-message_end:
+          db        "Hola, Holberton", 0        ; Note strings must be terminated with 0 in C
