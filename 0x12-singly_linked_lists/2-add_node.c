@@ -6,18 +6,19 @@
  * @head: Head of linked list
  * @str: Argument of the new node
  * Return: New node
- */ 
+ */
 
 list_t *add_node(list_t **head, const char *str)
 {
 	int i;
 	list_t *new_node = (list_t *) malloc(sizeof(list_t));
-	if(!new_node)
+
+	if (!new_node)
 	{
-		return(NULL);
+		return (NULL);
 	}
 
-	for(i = 0; str[i]; i++)
+	for (i = 0; str[i]; i++)
 		{};
 
 	new_node->str = strdup(str);
@@ -26,5 +27,5 @@ list_t *add_node(list_t **head, const char *str)
 	new_node->next = (*head);
 	(*head) = new_node;
 
-	return(new_node);
+	return (new_node);
 }
