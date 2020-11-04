@@ -9,6 +9,11 @@ void free_listint2(listint_t **head)
 {
 	listint_t *p, *store;
 
+	if (!*head)
+	{
+		return;
+	}
+
 	p = *head;
 	*head = NULL;
 	while (p)
