@@ -8,9 +8,9 @@
 void free_listint(listint_t *head)
 {
 	listint_t *p, *store;
-	p = head;
 
-	while(p)
+	p = head;
+	while (p)
 	{
 		store = p->next;
 		free(p);
