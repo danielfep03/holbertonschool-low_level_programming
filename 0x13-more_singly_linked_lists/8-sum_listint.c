@@ -11,12 +11,13 @@ int sum_listint(listint_t *head)
 	listint_t *store;
 	int add = 0;
 
-	store = head;
 
-	if (!store)
+	if (!head)
 	{
 		return (0);
 	}
+
+	store = head;
 
 	while (store)
 	{
