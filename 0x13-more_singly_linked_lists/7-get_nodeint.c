@@ -19,10 +19,9 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 
 	store = head;
 
-	for (i = 1; i <= index; i++)
+	for (i = 0; i < index; i++)
 	{
 		store = store->next;
 	}
-
 	return (store);
 }
