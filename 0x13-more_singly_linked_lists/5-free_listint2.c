@@ -23,4 +23,5 @@ void free_listint2(listint_t **head)
 		p = store;
 	}
 	free(*head);
+	*head = NULL;
 }
