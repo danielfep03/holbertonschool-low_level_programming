@@ -8,17 +8,20 @@
 
 int sum_listint(listint_t *head)
 {
+	listint_t *store;
 	int add = 0;
 
-	if (!head)
+	store = head;
+
+	if (!store)
 	{
 		return (0);
 	}
 
-	while (head)
+	while (store)
 	{
-		add += head->n;
-		head = head->next;
+		add += store->n;
+		store = store->next;
 	}
 
 	return (add);
