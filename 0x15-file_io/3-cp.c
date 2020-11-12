@@ -64,7 +64,7 @@ char *read_to_file(int fd_from, char *file_from)
 	int sz, bytes = 1024;
 	char *file;
 
-	file = malloc(sizeof(char) * 2000);
+	file = malloc(sizeof(char) * 3000);
 
 	if (!file)
 	{
