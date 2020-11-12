@@ -55,7 +55,7 @@ int main(int ac, char **av)
  * @fd_to: File descriptor
  * @file_from: Name of the file to read
  * @file_to: Name of the file to write
- * Return: An integer
+ * Return: 0 on success
  */
 
 
@@ -72,15 +72,6 @@ int read_n_write(int fd_from, int fd_to, char *file_from, char *file_to)
 		exit(98);
 	}
 
-	sz = read(fd_from, file, bytes);
-			if (sz == -1)
-			{
-				dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-				exit(98);
-			}
-
-if (sz == 1024)
-{
 	while (sz != 0)
 	{
 		sz = read(fd_from, file, bytes);
@@ -98,7 +89,6 @@ if (sz == 1024)
 			exit(99);
 		}
 	}
-} 
 
 	return (0);
 }
