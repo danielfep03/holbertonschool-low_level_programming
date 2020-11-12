@@ -61,7 +61,7 @@ int main(int ac, char **av)
 
 int read_n_write(int fd_from, int fd_to, char *file_from, char *file_to)
 {
-	int sz, w, bytes = 1024;
+	int sz = 1, w, bytes = 1024;
 	char *file;
 
 	file = malloc(sizeof(char) * bytes);
@@ -72,25 +72,22 @@ int read_n_write(int fd_from, int fd_to, char *file_from, char *file_to)
 		exit(98);
 	}
 
-loop:
-	sz = read(fd_from, file, bytes);
-		if (sz == -1)
+	while (sz != 0)
+	{
+		sz = read(fd_from, file, bytes);
+			if (sz == -1)
+			{
+				dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+				exit(98);
+			}
+
+		w = write(fd_to, file, sz);
+
+		if (w < 0)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-			exit(98);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+			exit(99);
 		}
-
-	w = write(fd_to, file, sz);
-
-	if (w < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
-		exit(99);
-	}
-
-	if (sz != 0)
-	{
-		goto loop;
 	}
 
 	return (0);
