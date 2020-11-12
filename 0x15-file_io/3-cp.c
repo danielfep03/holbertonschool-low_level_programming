@@ -1,6 +1,6 @@
 #include "holberton.h"
 
-int read_to_file(int fd_from, int fd_to, char *file_from, char *file_to);
+int read_n_write(int fd_from, int fd_to, char *file_from, char *file_to);
 
 /**
  * main - Function that write the content of a file to another file
@@ -12,6 +12,8 @@ int read_to_file(int fd_from, int fd_to, char *file_from, char *file_to);
 int main(int ac, char **av)
 {
 	int fd_from, fd_to;
+	char *file_from = av[1];
+	char *file_to = av[2];
 
 	if (ac != 3)
 	{
@@ -32,7 +34,7 @@ int main(int ac, char **av)
 			exit(99);
 		}
 
-	read_n_write(fd_from, fd_to, av[1], av[2]);
+	read_n_write(fd_from, fd_to, file_from, file_to);
 
 	if (close(fd_from) < 0)
 	{
