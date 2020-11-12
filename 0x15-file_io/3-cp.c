@@ -1,7 +1,6 @@
 #include "holberton.h"
 
-char *read_to_file(int fd_from, char *file_from);
-int write_to_file(int fd_to, char *file, char *to);
+int read_to_file(int fd_from, int fd_to, char *file_from, char *file_to);
 
 /**
  * main - Function that write the content of a file to another file
@@ -13,7 +12,6 @@ int write_to_file(int fd_to, char *file, char *to);
 int main(int ac, char **av)
 {
 	int fd_from, fd_to;
-	char *file;
 
 	if (ac != 3)
 	{
@@ -34,9 +32,7 @@ int main(int ac, char **av)
 			exit(99);
 		}
 
-	file = read_to_file(fd_from, av[1]);
-
-	write_to_file(fd_to, file, av[2]);
+	read_n_write(fd_from, fd_to, av[1], av[2]);
 
 	if (close(fd_from) < 0)
 	{
@@ -52,19 +48,21 @@ int main(int ac, char **av)
 }
 
 /**
- * read_to_file - Read the content of a file
+ * read_n_write - Read and write the content of a file to another file
  * @fd_from: File descriptor
- * @file_from: Name of the file
- * Return: A memory space
+ * @fd_to: File descriptor
+ * @file_from: Name of the file to read
+ * @file_to: Name of the file to write
+ * Return: An integer
  */
 
 
-char *read_to_file(int fd_from, char *file_from)
+int read_n_write(int fd_from, int fd_to, char *file_from, char *file_to)
 {
-	int sz, bytes = 1024;
+	int sz, w, bytes = 1024;
 	char *file;
 
-	file = malloc(sizeof(char) * 3000);
+	file = malloc(sizeof(char) * bytes);
 
 	if (!file)
 	{
@@ -80,35 +78,17 @@ loop:
 			exit(98);
 		}
 
-	if (sz <= 1024 && sz != 0)
-	{
-		goto loop;
-	}
-
-	return (file);
-}
-
-/**
- * write_to_file - Write into a file
- * @fd_to: File descriptor
- * @file: Buffer to write
- * @to: Name of the file
- * Return:0 On success
- */
-
-int write_to_file(int fd_to, char *file, char *to)
-{
-	int w, i;
-
-	for (i = 0; file[i]; i++)
-	{}
-
-	w = write(fd_to, file, i);
+	w = write(fd_to, file, sz);
 
 	if (w < 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", to);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
+	}
+
+	if (sz != 0)
+	{
+		goto loop;
 	}
 
 	return (0);
