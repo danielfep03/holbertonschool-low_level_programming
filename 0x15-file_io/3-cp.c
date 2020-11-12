@@ -72,6 +72,15 @@ int read_n_write(int fd_from, int fd_to, char *file_from, char *file_to)
 		exit(98);
 	}
 
+	sz = read(fd_from, file, bytes);
+			if (sz == -1)
+			{
+				dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+				exit(98);
+			}
+
+if (sz == 1024)
+{
 	while (sz != 0)
 	{
 		sz = read(fd_from, file, bytes);
@@ -89,6 +98,7 @@ int read_n_write(int fd_from, int fd_to, char *file_from, char *file_to)
 			exit(99);
 		}
 	}
+} 
 
 	return (0);
 }
