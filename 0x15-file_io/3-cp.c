@@ -72,7 +72,7 @@ char *read_to_file(int fd_from, char *file_from)
 		exit(98);
 	}
 
-	loop:
+loop:
 	sz = read(fd_from, file, bytes);
 		if (sz == -1)
 		{
@@ -98,10 +98,12 @@ char *read_to_file(int fd_from, char *file_from)
 
 int write_to_file(int fd_to, char *file, char *to)
 {
-	int w;
-	int bytes = 1024;
+	int w, i;
 
-	w = write(fd_to, file, bytes);
+	for (i = 0; file[i]; i++)
+	{}
+
+	w = write(fd_to, file, i);
 
 	if (w < 0)
 	{
