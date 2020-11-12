@@ -80,7 +80,7 @@ char *read_to_file(int fd_from, char *file_from)
 			exit(98);
 		}
 
-	if (sz <= 1024 && sz > 0)
+	if (sz <= 1024 && sz != 0)
 	{
 		goto loop;
 	}
