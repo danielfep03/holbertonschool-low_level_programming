@@ -47,7 +47,7 @@ int main(int ac, char **av)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
 		exit(100);
-	}
+		}
 	return (0);
 }
 
@@ -64,7 +64,7 @@ char *read_to_file(int fd_from, char *file_from)
 	int sz, bytes = 1024;
 	char *file;
 
-	file = malloc(sizeof(char) * bytes);
+	file = malloc(sizeof(char) * 2000);
 
 	if (!file)
 	{
@@ -72,12 +72,18 @@ char *read_to_file(int fd_from, char *file_from)
 		exit(98);
 	}
 
+	loop:
 	sz = read(fd_from, file, bytes);
 		if (sz == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 			exit(98);
 		}
+
+	if (sz <= 1024 && sz > 0)
+	{
+		goto loop;
+	}
 
 	return (file);
 }
@@ -102,5 +108,6 @@ int write_to_file(int fd_to, char *file, char *to)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", to);
 		exit(99);
 	}
+
 	return (0);
 }
