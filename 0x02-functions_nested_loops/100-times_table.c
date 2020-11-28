@@ -23,14 +23,13 @@ void print_times_table(int n)
 					_putchar(',');
 					_putchar(' ');
 
-					if (num < 100)
+					if (num < 10)
+						_putchar(' '), _putchar(' ');
+					if (num >= 10 && num < 100)
 						_putchar(' ');
 				}
-
 				if (num < 10)
-				{
 					_putchar(num + '0');
-				}
 				else if (num >= 10 && num < 100)
 				{
 					_putchar(num / 10 + '0');
