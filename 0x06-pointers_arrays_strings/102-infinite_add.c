@@ -1,61 +1,60 @@
 #include "holberton.h"
-#include <stdlib.h>
-
-
-char *_itoa(int number, int size_r, char *r);
-
- /**
- *
- *
+/**
+ * *infinite_add - function that addds two strings
+ * @n1: string 1
+ * @n2: string 2
+ * @r: string of the result
+ * @size_r: size of the recipient
+ * Return: the string with the result
  */
-
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int num1, num2, result;
+	int c, len1, len2, pos1, pos2, tmp1, tmp2, remainder;
 
-	num1 = atoi(n1);
-	num2 = atoi (n2);
-	result = num1 + num2;
+	len1 = pos1 = _strlen(n1);
+	len2 = pos2 = _strlen(n2);
+	for (c = size_r; c > 0; c--)
+	{
+		tmp1 = tmp2 = 0;
+		if (n1[pos1] >= 48 && n1[pos1] <= 57 && pos1 >= 0)
+			tmp1 = n1[pos1] - 48;
+		if (n2[pos2] >= 48 && n2[pos2] <= 57 && pos2 >= 0)
+			tmp2 = n2[pos2] - 48;
 
-	r = _itoa (result, size_r, r);
-
-	return (r);
-
+		r[c - 1] = (tmp1 + tmp2 + remainder) % 10 + 48;
+		if (tmp1 + tmp2 + remainder > 9)
+			remainder = 1;
+		else
+			remainder = 0;
+		pos1--;
+		pos2--;
+	}
+	r[size_r - 1] = '\0';
+	if ((size_r <= len1) || (size_r <= len2) ||
+	    (remainder && (size_r == len1 + 1 || size_r == len2 + 1)))
+		return (0);
+	c = 0;
+	while (r[c] == 48)
+		c++;
+	if (r[c] == '\0')
+		return (r);
+	else
+		return (&r[c]);
 }
-
 /**
- * _itoa -  
- * @number:
- * @size_r:
- * @r:
- * Return: 
+ * _strlen - calculate the length of the string
+ * @s: address of that variable
+ * Return: return the length of a string
  */
-
-
-char *_itoa(int number, int size_r, char *r)
+int _strlen(char *s)
 {
-	int i, j = 0, temp;
+	int length;
 
-	r = malloc(sizeof(char) * size_r);
-
-	
-	do
+	length = 0;
+	while (*s != '\0')
 	{
-		j++;
-		number /= 10;
+		length++;
+		s++;
 	}
-	while (number != 0);
-
-
-	for (i = 0; i <= j; i++)
-	{
-		temp = number % 10;
-		r[i] = temp + '0';
-		
-		number = number / 10;
-	}
-
-	r[i] = '\0';
-
-	return (r);
+	return (length);
 }
