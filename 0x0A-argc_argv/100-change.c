@@ -1,51 +1,62 @@
-#include "holberton.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
-
+#include "holberton.h"
 /**
- * main - prints buffer in hexa
- * @argc: he number of command line arguments
- * @argv: An array containing the program command line arguments.
- *
- * Return: Nothing.
+ * checkdigits - function to check all the digits in the string
+ * @s: string to evaluate
+ * Return: 0 if they are not digits and 1 if they are
  */
-int main(int argc, char *argv[])
+int checkdigits(char *s)
 {
-	int j = 0, i = 1, coins, change = 0, a;
-	int cents[5] = {25, 10, 5, 2, 1};
+	int a;
 
-	if (argc == 2)
+	for (a = 0; s[a] != '\0'; a++)
 	{
-		for (j = 0; argv[i][j] != '\0'; j++)
-		{
-			if (argv[i][j] == '-')
-			{
-				printf("0\n");
-				return (0);
-			}
-			if (!(isdigit(argv[i][j])))
-			{
-				printf("Error\n");
-				return (1);
-			}
-		}
-		coins = atoi(argv[i]);
-		for (a = 0; a < 5; a++)
-		{
-
-			while (coins >= cents[a])
-			{
-				coins -= cents[a];
-				change += 1;
-			}
-		}
-		printf("%d\n", change);
+		if (!isdigit(s[a]))
+			return (0);
 	}
-	else
+	return (1);
+}
+/**
+ * main - prints the product of two numbers
+ * @argc: counter of argc
+ * @argv: vector argument
+ * Return: Always 0 success and 1 if there is an error
+ */
+int main(int argc, char **argv)
+{
+	int c25 = 0, c10 = 0, c5 = 0, c2 = 0, c1 = 0;
+	int c = 1, tcoins = 0, money = 0;
+
+	if (argc != 2)
 	{
 		printf("Error\n");
 		return (1);
 	}
+	for (; c < argc; c++)
+	{
+		if (checkdigits(argv[c]))
+		{
+		money = atoi(argv[c]);
+		for ( ; money >= 25; c25++)
+			money -= 25;
+		for ( ; money >= 10; c10++)
+			money -= 10;
+		for ( ; money >= 5; c5++)
+			money -= 5;
+		for ( ; money >= 2; c2++)
+			money -= 2;
+		for ( ; money >= 1; c1++)
+			money -= 1;
+		tcoins = c25 + c10 + c5 + c2 + c1;
+		}
+		else
+		{
+			printf("0\n");
+			return (0);
+		}
+	}
+	printf("%d\n", tcoins);
 	return (0);
 }
