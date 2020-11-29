@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <string.h>
 /**
  * *infinite_add - function that addds two strings
  * @n1: string 1
