@@ -1,62 +1,45 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <ctype.h>
 #include "holberton.h"
 /**
- * checkdigits - function to check all the digits in the string
- * @s: string to evaluate
- * Return: 0 if they are not digits and 1 if they are
- */
-int checkdigits(char *s)
-{
-	int a;
-
-	for (a = 0; s[a] != '\0'; a++)
-	{
-		if (!isdigit(s[a]))
-			return (0);
-	}
-	return (1);
-}
-/**
- * main - prints the product of two numbers
- * @argc: counter of argc
- * @argv: vector argument
- * Return: Always 0 success and 1 if there is an error
+ * main - output minimum number of coins to make change
+ *
+ * @argc: number of arguments
+ * @argv: strings of arguments
+ *
+ * Return: 1 if error, 0 if success
  */
 int main(int argc, char **argv)
 {
-	int c25 = 0, c10 = 0, c5 = 0, c2 = 0, c1 = 0;
-	int c = 1, tcoins = 0, money = 0;
+	int cents, coins = 0;
 
 	if (argc != 2)
 	{
 		printf("Error\n");
 		return (1);
 	}
-	for (; c < argc; c++)
+
+	cents = atoi(argv[1]);
+	while (cents >= 25)
 	{
-		if (checkdigits(argv[c]))
-		{
-		money = atoi(argv[c]);
-		for ( ; money >= 25; c25++)
-			money -= 25;
-		for ( ; money >= 10; c10++)
-			money -= 10;
-		for ( ; money >= 5; c5++)
-			money -= 5;
-		for ( ; money >= 2; c2++)
-			money -= 2;
-		for ( ; money >= 1; c1++)
-			money -= 1;
-		tcoins = c25 + c10 + c5 + c2 + c1;
-		}
-		else
-		{
-			printf("0\n");
-			return (0);
-		}
+		coins++;
+		cents -= 25;
 	}
-	printf("%d\n", tcoins);
+	while (cents >= 10)
+	{
+		coins++;
+		cents -= 10;
+	}
+	if (cents >= 5)
+	{
+		coins++;
+		cents -= 5;
+	}
+	while (cents >= 2)
+	{
+		coins++;
+		cents -= 2;
+	}
+	if (cents == 1)
+		coins++;
+	printf("%d\n", coins);
 	return (0);
 }
