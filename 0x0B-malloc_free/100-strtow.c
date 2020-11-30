@@ -1,51 +1,74 @@
 #include "holberton.h"
-#include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
 
 /**
- * main - prints buffer in hexa
- * @argc: he number of command line arguments
- * @argv: An array containing the program command line arguments.
- *
- * Return: Nothing.
+ * words - counts the number of words in a string.
+ * @s: string.
+ * Return: number of words.
  */
-int main(int argc, char *argv[])
+int words(char *s)
 {
-	int j = 0, i = 1, coins, change = 0, a;
-	int cents[5] = {25, 10, 5, 2, 1};
+	int i, n = 0;
 
-	if (argc == 2)
+	for (i = 0; s[i]; i++)
 	{
-		for (j = 0; argv[i][j] != '\0'; j++)
+		if (s[i] == ' ')
 		{
-			if (argv[i][j] == '-')
-			{
-				printf("0\n");
-				return (0);
-			}
-			if (!(isdigit(argv[i][j])))
-			{
-				printf("Error\n");
-				return (1);
-			}
+			if (s[i + 1] != ' ' && s[i + 1] != '\0')
+				n++;
 		}
-		coins = atoi(argv[i]);
-		for (a = 0; a < 5; a++)
-		{
+		else if (i == 0)
+			n++;
+	}
+	n++;
+	return (n);
+}
 
-			while (coins >= cents[a])
-			{
-				coins -= cents[a];
-				change += 1;
-			}
-		}
-		printf("%d\n", change);
-	}
-	else
+/**
+ * strtow - splits a string into words
+ * @str: string
+ * Return: pointer to an array of strings
+ */
+char **strtow(char *str)
+{
+	int i, j, k, l, n = 0, ch = 0;
+	char **token;
+
+	if (str == NULL || *str == '\0')
+		return (NULL);
+	n = words(str);
+	if (n == 1)
+		return (NULL);
+	 token = (char **)malloc(n * sizeof(char *));
+	if (token == NULL)
+		return (NULL);
+	token[n - 1] = NULL;
+	i = 0;
+	while (str[i])
 	{
-		printf("Error\n");
-		return (1);
+		if (str[i] != ' ' && (i == 0 || str[i - 1] == ' '))
+		{
+			for (j = 1; str[i + j] != ' ' && str[i + j]; j++)
+				;
+			j++;
+			token[ch] = (char *)malloc(j * sizeof(char));
+			j--;
+			if (token[ch] == NULL)
+			{
+				for (k = 0; k < ch; k++)
+					free(token[k]);
+				free(token[n - 1]);
+				free(token);
+				return (NULL);
+			}
+			for (l = 0; l < j; l++)
+				token[ch][l] = str[i + l];
+			token[ch][l] = '\0';
+			ch++;
+			i += j;
+		}
+		else
+			i++;
 	}
-	return (0);
+	return (token);
 }
