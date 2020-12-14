@@ -1,9 +1,9 @@
 #include "lists.h"
 
 /**
- * dlistint_len - 
- * @h:
- * Return:
+ * dlistint_len - Returns the number of elements in a doubly linked list
+ * @h: Head of a list
+ * Return: Number of elements
  */
 
 size_t dlistint_len(const dlistint_t *h)
