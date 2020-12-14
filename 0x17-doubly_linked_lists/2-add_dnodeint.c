@@ -1,4 +1,4 @@
-2#include "lists.h"
+#include "lists.h"
 
 /**
  * add_dnodeint - Adds a new node at the beginning of a dlistint_t list
@@ -13,10 +13,10 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 
 	if (!new_node)
 	{
-		return(NULL);
+		return (NULL);
 	}
 
-	if(head == NULL)
+	if (head == NULL)
 	{
 		head = &new_node;
 		new_node->prev = NULL;
@@ -31,5 +31,5 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 		*head = new_node;
 		head = &new_node;
 	}
-	return(new_node);
+	return (new_node);
 }
