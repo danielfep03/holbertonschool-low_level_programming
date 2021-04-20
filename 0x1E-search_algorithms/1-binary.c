@@ -1,5 +1,4 @@
 #include "search_algos.h"
-#include <math.h>
 
 /**
  * binary_search - Function that search for a value in a sorted array
@@ -23,7 +22,7 @@ int binary_search(int *array, size_t size, int value)
 			printf("%d, ", array[i]);
 		}
 		printf("%d\n", array[i]);
-		middle = floor((left + right) / 2);
+		middle = left + right) / 2;
 		if (array[middle] < value)
 			left = middle + 1;
 		else if (array[middle] > value)
